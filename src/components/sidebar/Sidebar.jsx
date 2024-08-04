@@ -7,7 +7,7 @@ import Slider from "../slider/Slider";
 const Sidebar = () => {
   const [hovered, setHovered] = useState(null);
   return (
-    <div className="flex ]">
+    <div className="flex ">
       <div className="mt-10">
         <ul className="leading-6 relative w-[217px]  ">
           {sidebarData?.map((menu, index) => (

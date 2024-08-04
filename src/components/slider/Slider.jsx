@@ -9,6 +9,40 @@ import Apple from "/public/images/apple.png";
 import Phone from "/public/images/phone.png";
 import { RightArrowIcon } from "@/icons/Icons";
 
+const slidesData = [
+  {
+  
+    textColor: '#FAFAFA',
+    imageSrc: '/images/apple.png',
+    productTitle: 'iPhone 14 Series',
+    mainTitle: 'Up to 10% off Voucher',
+    buttonText: 'Shop Now',
+    icon: <RightArrowIcon />,
+    mainImageSrc: '/images/phone.png',
+  },
+  {
+  
+    textColor: '#FAFAFA',
+    imageSrc: '/images/apple.png',
+    productTitle: 'iPhone 14 Series',
+    mainTitle: 'Up to 10% off Voucher',
+    buttonText: 'Shop Now',
+    icon: <RightArrowIcon />,
+    mainImageSrc: '/images/phone.png',
+  },
+  {
+  
+    textColor: '#FAFAFA',
+    imageSrc: '/images/apple.png',
+    productTitle: 'iPhone 14 Series',
+    mainTitle: 'Up to 10% off Voucher',
+    buttonText: 'Shop Now',
+    icon: <RightArrowIcon />,
+    mainImageSrc: '/images/phone.png',
+  },
+
+];
+
 const Slider = () => {
   return (
     <div className="w-[892px] ml-[45px]  mt-10">
@@ -26,46 +60,34 @@ const Slider = () => {
         modules={[Navigation, Pagination, Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide className=" bg-black w-full   text-[#FAFAFA] pl-16 ">
-          <div className="h-[344px] flex  items-center">
+  <Swiper>
+      {slidesData.map((slide, index) => (
+        <SwiperSlide
+          key={index}
+          style={{ color: slide.textColor }}
+          className={`bg-black w-full  pl-16`}
+        >
+          <div className={`h-[344px] flex items-center `}>
             <div>
               <div className="flex items-center gap-6">
-                <Image src={Apple} alt="loading...?" />
-                <p>iPhone 14 Series</p>
+                <Image src={slide.imageSrc} height={49} width={40} alt={`${slide.productTitle} image`} />
+                <p>{slide.productTitle}</p>
               </div>
               <h1 className="text-5xl font-semibold mt-5 leading-[60px]">
-                Up to 10% off Voucher
+                {slide.mainTitle}
               </h1>
-              <button className="flex items-center gap-2 font-medium   mt-[22px] group ">
-                <span className="border-b leading-6">Shop Now </span>
-                <span className="group-hover:translate-x-2 translate-x-0  duration-200">
-                  <RightArrowIcon />
+              <button className="flex items-center gap-2 font-medium mt-[22px] group">
+                <span className="border-b leading-6">{slide.buttonText}</span>
+                <span className="group-hover:translate-x-2 translate-x-0 duration-200">
+                  {slide.icon}
                 </span>
               </button>
             </div>
-            <Image src={Phone} alt="loading...?"/>
+            <Image src={slide.mainImageSrc} width={496} height={344} alt={`${slide.productTitle} main image`} />
           </div>
         </SwiperSlide>
-        <SwiperSlide className=" bg-black w-full   text-[#FAFAFA] pl-16 ">
-          <div className="h-[344px] flex  items-center">
-            <div>
-              <div className="flex items-center gap-6">
-                <Image src={Apple} alt="loading...?" />
-                <p>iPhone 14 Series</p>
-              </div>
-              <h1 className="text-5xl font-semibold mt-5 leading-[60px]">
-                Up to 10% off Voucher
-              </h1>
-              <button className="flex items-center gap-2 font-medium   mt-[22px] group ">
-                <span className="border-b leading-6">Shop Now </span>
-                <span className="group-hover:translate-x-2 translate-x-0  duration-200">
-                  <RightArrowIcon />
-                </span>
-              </button>
-            </div>
-            <Image src={Phone} alt="loading...?"/>
-          </div>
-        </SwiperSlide>
+      ))}
+    </Swiper>
       </Swiper>
     </div>
   );
